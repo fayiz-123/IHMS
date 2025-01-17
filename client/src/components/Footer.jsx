@@ -1,24 +1,26 @@
 import React from 'react'
+import './Footer.css'
+import {Link} from 'react-router-dom'
 
 function Footer() {
   return (
-    <div>
+    <div id='foot'>
          {/* Enhanced Footer */}
   <footer id="contact">
     <div className="footer-container">
       <div className="footer-section about">
-        <h2>About Us</h2>
+        <h2>Mission</h2>
         <p>
-        The Integrated Home Management System (IHMS) is a web-based platform designed to provide homeowners with a convenient and 
-        efficient way to manage their homes. IHMS offers a range of services, including electrical, plumbing, and waste management,
-         through a network of verified professionals.
+        To provide homeowners with a convenient and efficient web-based platform for managing their homes. 
+        The Integrated Home Management System (IHMS) connects users with a trusted network of verified professionals, 
+        offering essential services such as electrical, plumbing, and waste management.
         </p>
       </div>
       <div className="footer-section links">
         <h2>Quick Links</h2>
         <ul>
           <li>
-            <a href="#introduction">Home</a>
+            <Link to='/'>Home</Link>
           </li>
           <li>
             <a href="#psychology">Help</a>
@@ -27,19 +29,6 @@ function Footer() {
             <a href="#contact">Contact Us</a>
           </li>
         </ul>
-      </div>
-      <div className="footer-section contact-form">
-        <h2>Contact Us</h2>
-        <form action="#" method="post">
-          <input type="email" name="email" placeholder="Your email address" />
-          <textarea
-            name="message"
-            rows={4}
-            placeholder="Your message"
-            defaultValue={""}
-          />
-          <button type="submit">Send</button>
-        </form>
       </div>
       <div className="footer-section social-media">
         <h2>Follow Us</h2>

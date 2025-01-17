@@ -1,10 +1,10 @@
  /* Footer Styles */
-  footer {
+ #foot footer {
     background: rgba(0, 0, 0, 0.9);
     color: #fff;
   }
   
-  .footer-container {
+  #foot .footer-container {
     display: flex;
     flex-wrap: wrap;
     padding: 40px 5%;
@@ -13,121 +13,65 @@
     margin: 0 auto;
   }
   
-  .footer-section {
+  #foot .footer-section {
     flex: 1 1 300px;
     margin: 10px;
   }
   
-  .footer-section h2 {
+  #foot .footer-section h2 {
     font-size: 1.5em;
     margin-bottom: 20px;
     color: var(--accent-color);
     line-height: 1.1;
   }
   
-  .footer-section p,
-  .footer-section ul,
-  .footer-section form {
+  #foot .footer-section p,ul,form{
     font-size: 1em;
     color: #ddd;
     line-height: 1.5;
   }
   
-  .footer-section ul {
+  #foot .footer-section ul {
     list-style: none;
   }
   
-  .footer-section ul li {
+  #foot  .footer-section ul li {
     margin-bottom: 10px;
   }
   
-  .footer-section ul li a {
+  #foot  .footer-section ul li a {
     color: #ddd;
     text-decoration: none;
   }
   
-  .footer-section ul li a:hover {
+  #foot  .footer-section ul li a:hover {
     color: var(--accent-color);
   }
   
-  .footer-section .social-icons {
+  #foot  .footer-section  .social-icons {
     display: flex;
     gap: 15px;
   }
   
-  .footer-section .social-icons li {
+  #foot .footer-section  .social-icons li {
     list-style: none;
   }
   
-  .footer-section .social-icons li a img {
+  #foot .footer-section  .social-icons li a img {
     width: 24px;
     height: 24px;
   }
   
-  .footer-section form input,
-  .footer-section form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.9);
-  }
   
-  .footer-section form input:focus,
-  .footer-section form textarea:focus {
-    outline: none;
-    border: 2px solid var(--accent-color);
-  }
-  
-  .footer-section form button {
-    padding: 10px 20px;
-    border: none;
-    background-image: linear-gradient(
-      45deg,
-      var(--primary-color),
-      var(--accent-color)
-    );
-    color: #fff;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .footer-section form button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    transition: left 0.3s ease-in-out;
-  }
-  
-  .footer-section form button:hover::before {
-    left: 0;
-  }
-  
-  .footer-section form button:hover {
-    background-image: linear-gradient(
-      45deg,
-      var(--accent-color),
-      var(--primary-color)
-    );
-  }
   
   /* Footer Bottom */
-  .footer-bottom {
+  #foot .footer-bottom {
     background: rgba(0, 0, 0, 0.95);
     padding: 20px;
     text-align: center;
   }
   
-  .footer-bottom p {
+  #foot .footer-bottom p {
     margin: 0;
     font-size: 1em;
   }

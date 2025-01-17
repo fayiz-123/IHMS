@@ -1,9 +1,10 @@
 import React from 'react'
 import './Nav.css'
+import {Link} from 'react-router-dom'
 
 function Nav() {
   return (
-    <div>
+    <div id='nav'>
           <header>
     <nav>
       <div className="logo">
@@ -20,7 +21,7 @@ function Nav() {
       </div>
       <ul className="nav-links" id="nav-links">
         <li>
-          <a href="#introduction">Home</a>
+          <Link to='/'>Home</Link>
         </li>
        
         <li>
@@ -30,7 +31,7 @@ function Nav() {
           <a href="#psychology">Contact</a>
         </li>
         <li>
-          <a href="#contact">Login</a>
+          <Link to='/login'>Login</Link>
         </li>
       </ul>
     </nav>
