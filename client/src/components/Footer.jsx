@@ -26,7 +26,7 @@ function Footer() {
             <a href="#psychology">Help</a>
           </li>
           <li>
-            <a href="#contact">Contact Us</a>
+            <Link to='/contact'>Contact Us</Link>
           </li>
         </ul>
       </div>

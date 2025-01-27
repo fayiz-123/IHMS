@@ -1,10 +1,10 @@
 :root {
-  --primary-color: #ff5733;
-  --secondary-color: #8c0ccb;
-  --accent-color: #f1c40f;
-  --text-color: #333;
-  --light-bg: #f9f9f9;
-  --card-shadow: rgba(0, 0, 0, 0.1);
+  --primary-color: #8947f4; /* Light violet */
+  --secondary-color: #8e44ad; /* Muted purple */
+  --accent-color: #f39c12; /* Softer yellow */
+  --text-color: #333; /* Standard text color */
+  --light-bg: #f9f9f9; /* Light background */
+  --card-shadow: rgba(0, 0, 0, 0.1); /* Subtle card shadow */
   --font-family: "Poppins", sans-serif;
 }
 
@@ -29,7 +29,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--primary-color); /* Light violet background */
   color: #fff;
 }
 
@@ -93,7 +93,7 @@
 #elec .service-info h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
-  color: var(--primary-color);
+  color: var(--primary-color); /* Light violet for titles */
 }
 
 #elec .service-info p {
@@ -103,7 +103,7 @@
 }
 
 #elec .service-info p strong {
-  color: var(--secondary-color);
+  color: var(--secondary-color); /* Muted purple for emphasized text */
   font-weight: bold;
 }
 
@@ -112,7 +112,7 @@
   display: inline-flex;
   align-items: center;
   padding: 10px 20px;
-  background: var(--accent-color);
+  background: var(--accent-color); /* Softer yellow for buttons */
   color: #000;
   border: none;
   border-radius: 5px;
@@ -123,7 +123,7 @@
 }
 
 #elec .animated-button:hover {
-  background: var(--primary-color);
+  background: var(--primary-color); /* Hover effect with light violet */
   color: #fff;
 }
 
@@ -155,6 +155,32 @@
     flex: 1 1 100%;
   }
 }
+/* Book Now Button Section */
+#elec .book-now-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#elec .book-now-button {
+  padding: 12px 30px;
+  background-color: #9055ee; /* Color that matches your theme */
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#elec .book-now-button:hover {
+  background-color: #f39c12; /* Accent color on hover */
+  transform: scale(1.05);
+}
+
+#elec .book-now-button:active {
+  transform: scale(0.98);
+}
+
 
 /* Animations */
 @keyframes fadeIn {

@@ -1,172 +1,161 @@
-/* Global styles */
-#sign * {
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-#sign body {
-    margin: 0;
-    font-family: 'Poppins', Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: #666;
-    background: #eaeff4;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    overflow-x: hidden;
 }
 
-/* Layout Styles */
-#sign .wrapper {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1140px;
-    min-height: 100vh;
+/* Main container for sign-up */
+#sign-up {
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
-#sign .container {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    height: auto;
+/* Wrapper and layout */
+#sign-up .wrapper.sign-up {
     display: flex;
-    background: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Left Column with information or image */
-#sign .col-left {
+/* Two columns - Left for text, Right for form */
+#sign-up .container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+#sign-up .col-left {
     width: 50%;
-    background: linear-gradient(135deg, #2aa15f, #1d7a3c);
+    background-color: #9055ee;
     color: white;
     padding: 40px;
-    border-radius: 10px 0 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-#sign .col-left h2 {
-    font-size: 30px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-#sign .col-left p {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
-#sign .col-left .btn {
-    display: inline-block;
-    background-color: #ffffff;
-    color: #2aa15f;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 30px;
-    text-decoration: none;
-    border: 2px solid #ffffff;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#sign .col-left .btn:hover {
-    background-color: #2aa15f;
-    color: #ffffff;
-}
-
-/* Right Column with Sign-Up Form */
-#sign .col-right {
+#sign-up .col-right {
     width: 50%;
-    padding: 40px 30px;
+    padding: 40px;
 }
 
-#sign .col-right h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #333;
+#sign-up .sign-up-text h2 {
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
-#sign .col-right p {
+#sign-up .sign-up-text p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#sign-up .sign-up-text a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#sign-up .sign-up-text a:hover {
+    text-decoration: underline;
+}
+
+#sign-up .sign-up-form h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #9055ee;
+}
+
+#sign-up .sign-up-form form p {
+    margin-bottom: 20px;
+}
+
+#sign-up .sign-up-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#sign-up .sign-up-form input[type="text"],
+#sign-up .sign-up-form input[type="email"],
+#sign-up .sign-up-form input[type="password"],
+#sign-up .sign-up-form input[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
     margin-bottom: 15px;
-    font-size: 14px;
-    color: #666;
-    text-align: left;
 }
 
-#sign .login-form input {
-    width: 100%;
-    height: 40px;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 2px solid #ccc;
-    border-radius: 30px;
-    outline: none;
-    font-size: 16px;
-    transition: border 0.3s ease;
-}
-
-#sign .login-form input:focus {
-    border-color: #2aa15f;
-}
-
-#sign .login-form button,
-#sign .login-form input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #2aa15f;
-    color: white;
-    border: none;
-    border-radius: 30px;
+#sign-up .sign-up-form input[type="submit"] {
+    background-color: #f39c12;
+    color: #fff;
     cursor: pointer;
-    font-size: 16px;
+    border: none;
     transition: background-color 0.3s ease;
 }
 
-#sign .login-form button:hover,
-#sign .login-form input[type="submit"]:hover {
-    background-color: #1d7a3c;
+#sign-up .sign-up-form input[type="submit"]:hover {
+    background-color: #9055ee;
 }
 
-#sign .login-form Link {
-    font-size: 14px;
-    color: #2aa15f;
+#sign-up .sign-up-form input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+#sign-up .sign-up-form a {
+    font-size: 0.9rem;
+    color: #9055ee;
     text-decoration: none;
-    display: block;
-    text-align: right;
-    margin-top: 10px;
+    text-align: center;
 }
 
-#sign .login-form Link:hover {
+#sign-up .sign-up-form a:hover {
     text-decoration: underline;
 }
 
 /* Mobile Responsiveness */
-@media(max-width: 768px) {
-    #sign .container {
+@media (max-width: 768px) {
+    #sign-up .container {
         flex-direction: column;
-        box-shadow: none;
+        max-width: 100%;
     }
 
-    #sign .col-left, #sign .col-right {
+    #sign-up .col-left, #sign-up .col-right {
         width: 100%;
-        margin: 0;
-        border-radius: 10px;
     }
 
-    #sign .col-left {
-        border-radius: 10px 10px 0 0;
-        text-align: center;
+    #sign-up .sign-up-text h2 {
+        font-size: 1.8rem;
     }
 
-    #sign .col-right {
-        padding: 30px;
+    #sign-up .sign-up-form h2 {
+        font-size: 1.8rem;
     }
 
-    #sign .login-form input {
-        font-size: 15px;
-    }
-
-    #sign .login-form button {
-        font-size: 18px;
+    #sign-up .sign-up-form input[type="text"],
+    #sign-up .sign-up-form input[type="email"],
+    #sign-up .sign-up-form input[type="password"] {
+        width: 100%;
+        font-size: 1rem;
     }
 }

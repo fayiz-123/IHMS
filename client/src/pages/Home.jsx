@@ -1,8 +1,9 @@
 import React from 'react'
 import './home.css'
-import Nav from '../components/Nav'
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
+import Nav from '../components/Nav';
 import {Link} from 'react-router-dom'
+
 
 
 
@@ -10,7 +11,7 @@ function Home() {
   window.scrollTo(0, 0);
   return (
     <>
-      <Nav />
+     <Nav/>
       
         <main id='home'>
           {/* Hero Section */}
@@ -63,31 +64,31 @@ function Home() {
               {/* services types */}
               <div className="color-cards">
                 {/* electricity box */}
-                <div className="color-card red">
+                <div className="color-card one">
                   <h3>Electricity</h3>
                   <p>
                     Are electrical problems disrupting your routine?
                     Is finding an electrician during peak hours in Kerala difficult for quick solution to restore power?
                   </p>
-                  <button className="animated-button">
+                  <Link to='/electricity'> <button className="animated-button">
                     <svg xmlns="http://www.w3.org/2000/svg" className="arr-2" viewBox="0 0 24 24">
                       <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
                     </svg>
-                   <Link to='/electricity'> <span className="text">CLICK HERE</span></Link>
+                    <span className="text">CLICK HERE</span>
                     <span className="circle" />
                     <svg xmlns="http://www.w3.org/2000/svg" className="arr-1" viewBox="0 0 24 24">
                       <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
                     </svg>
-                  </button>
+                  </button></Link>
                 </div>
                 {/* plumbing box */}
-                <div className="color-card blue">
+                <div className="color-card two">
                   <h3>Plumbing</h3>
                   <p>
                     Are plumbing issues causing inconvenience in your daily life?
                     Is it challenging to find a reliable plumber during urgent situations in Kerala?
                   </p>
-                  <button className="animated-button">
+                  <Link to='/plumbing'> <button className="animated-button">
                     <svg xmlns="http://www.w3.org/2000/svg" className="arr-2" viewBox="0 0 24 24">
                       <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
                     </svg>
@@ -96,15 +97,15 @@ function Home() {
                     <svg xmlns="http://www.w3.org/2000/svg" className="arr-1" viewBox="0 0 24 24">
                       <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
                     </svg>
-                  </button>
+                  </button></Link>
                 </div>
                 {/* waste managemnt box */}
-                <div className="color-card yellow">
+                <div className="color-card three">
                   <h3>Waste Mangement</h3>
                   <p>
                     Is improper waste disposal affecting your surroundings? Finding a reliable waste management service in Kerala during peak times can be a challenge.
                   </p>
-                  <button className="animated-button">
+                 <Link to='/wastemanagement'> <button className="animated-button">
                     <svg xmlns="http://www.w3.org/2000/svg" className="arr-2" viewBox="0 0 24 24">
                       <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
                     </svg>
@@ -113,7 +114,7 @@ function Home() {
                     <svg xmlns="http://www.w3.org/2000/svg" className="arr-1" viewBox="0 0 24 24">
                       <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
                     </svg>
-                  </button>
+                  </button></Link>
                 </div>
               </div>
             </div>
@@ -136,7 +137,7 @@ function Home() {
         </main>
       
 
-      <Footer />
+      <Footer/>
     </>
 
   )

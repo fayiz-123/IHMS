@@ -1,70 +1,72 @@
-import React from 'react';
-import './SignUp.css';
-import {Link} from 'react-router-dom'
-import Footer from '../components/Footer';
+import React from 'react'
+import './SignUp.css'
+import Footer from '../components/Footer'
+import { Link } from 'react-router-dom'
 
-function SignUp() {
-  
+function SignUpPage() {
+  window.scrollTo(0, 0);
   
   return (
     <>
-    <div id="sign"> 
-      <div className="wrapper">
-        <div className="container">
-          <div className="col-left">
-            <h2>Create an Account</h2>
-            <p>Join us today and start enjoying all the features of our services!</p>
-            <Link to="/login" className="btn">Already have an account? Log in</Link>
-          </div>
-
-          {/* Right Column with Sign-Up Form */}
-          <div className="col-right">
-            <form className="login-form">
-              <h2>Sign Up</h2>
-
-              <p>Enter your details to create a new account:</p>
-              <div>
-                <input
-                  type="text"
-                  name="username"
-                  placeholder="Username"
-                  required
-                />
+      <div id="sign-up">
+        <div className="wrapper sign-up">
+          <div className="container">
+            <div className="col-left">
+              <div className="sign-up-text">
+                <h2>Create Your Account!</h2>
+                <p>
+                  Join us and manage your home services with ease. It's free and quick to sign up!
+                  <br />
+                  Already have an account? <Link to='/login' className="btn">Login</Link>
+                </p>
               </div>
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address"
-                  required
-                />
+            </div>
+            <div className="col-right">
+              <div className="sign-up-form">
+                <h2>Sign Up</h2>
+                <form action="">
+                  <p>
+                    <label>
+                      Full Name<span>*</span>
+                    </label>
+                    <input type="text" placeholder="Full Name" required="" />
+                  </p>
+                  <p>
+                    <label>
+                      Email address<span>*</span>
+                    </label>
+                    <input type="email" placeholder="Email" required="" />
+                  </p>
+                  <p>
+                    <label>
+                      Phone Number<span>*</span>
+                    </label>
+                    <input type="text" placeholder="Phone Number" required="" />
+                  </p>
+                  <p>
+                    <label>
+                      Password<span>*</span>
+                    </label>
+                    <input type="password" placeholder="Password" required="" />
+                  </p>
+                  <p>
+                    <label>
+                      Confirm Password<span>*</span>
+                    </label>
+                    <input type="password" placeholder="Confirm Password" required="" />
+                  </p>
+                  <p>
+                    <input type="submit" value="Sign Up" />
+                  </p>
+                </form>
               </div>
-              <div>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  required
-                />
-              </div>
-              <div>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Confirm Password"
-                  required
-                />
-              </div>
-              <button type="submit">Sign Up</button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <Footer/>
-  </>
+      <Footer />
+    </>
   );
-  
 }
 
-export default SignUp;
+export default SignUpPage;

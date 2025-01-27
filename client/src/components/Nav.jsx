@@ -25,10 +25,10 @@ function Nav() {
         </li>
        
         <li>
-          <a href="#mixer">About</a>
+         <Link to='/about'> About</Link>
         </li>
         <li>
-          <a href="#psychology">Contact</a>
+          <Link to='/contact'>Contact</Link>
         </li>
         <li>
           <Link to='/login'>Login</Link>
