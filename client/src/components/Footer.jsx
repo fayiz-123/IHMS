@@ -7,30 +7,30 @@ function Footer() {
     <div id='foot'>
          {/* Enhanced Footer */}
   <footer id="contact">
-    <div className="footer-container">
-      <div className="footer-section about">
+    <div className="footer-container" style={{marginRight:220}}>
+      <div className="footer-section about"style={{marginRight:110}}>
         <h2>Mission</h2>
-        <p>
+        <p style={{width:500}}>
         To provide homeowners with a convenient and efficient web-based platform for managing their homes. 
         The Integrated Home Management System (IHMS) connects users with a trusted network of verified professionals, 
         offering essential services such as electrical, plumbing, and waste management.
         </p>
       </div>
-      <div className="footer-section links">
+      <div className="footer-section links" style={{marginRight:-40}}>
         <h2>Quick Links</h2>
         <ul>
           <li>
             <Link to='/'>Home</Link>
           </li>
           <li>
-            <a href="#psychology">Help</a>
+          <Link to='/about'>About</Link>
           </li>
           <li>
             <Link to='/contact'>Contact Us</Link>
           </li>
         </ul>
       </div>
-      <div className="footer-section social-media">
+      <div className="footer-section social-media"style={{marginRight:-200}}>
         <h2>Follow Us</h2>
         <ul className="social-icons">
           <li>

@@ -21,7 +21,7 @@
   #foot .footer-section h2 {
     font-size: 1.5em;
     margin-bottom: 20px;
-    color: var(--accent-color);
+    color:rgb(237,237,244);
     line-height: 1.1;
   }
   
@@ -45,7 +45,7 @@
   }
   
   #foot  .footer-section ul li a:hover {
-    color: var(--accent-color);
+    color: rgb(146,146,210);
   }
   
   #foot  .footer-section  .social-icons {

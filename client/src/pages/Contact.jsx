@@ -25,8 +25,8 @@ function Contact() {
         <section id="contact-form">
           <div className="container">
             <h2>Get In Touch</h2>
-            <p>We'd love to hear from you! Please fill out the form below.</p>
-            <form className="contact-form">
+            <p style={{color:'black'}}>We'd love to hear from you! Please fill out the form below.</p>
+            <form className="contact-form" style={{border:'2px solid blue',padding:'50px'}}>
               <input type="text" name="name" placeholder="Your Name" required />
               <input type="email" name="email" placeholder="Your Email" required />
               <textarea name="message" placeholder="Your Message" required></textarea>
@@ -40,15 +40,15 @@ function Contact() {
           <div className="info-container">
             <div className="info-item">
               <h3>Address</h3>
-              <p>Companyppadi,Oppo:piller no:106,Aluva,Ernakulam,Kerala, India</p>
+              <p style={{color:'black'}}>Companyppadi,Oppo:piller no:106,Aluva,Ernakulam,Kerala, India</p>
             </div>
             <div className="info-item">
               <h3>Phone</h3>
-              <p>(+91) 8714585932</p>
+              <p style={{color:'black'}}>(+91) 8714585932</p>
             </div>
             <div className="info-item">
               <h3>Email</h3>
-              <p>support@ihms.com</p>
+              <p style={{color:'black'}}>support@ihms.com</p>
             </div>
           </div>
         </section>

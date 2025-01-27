@@ -7,7 +7,7 @@
     right: 0;
     z-index: 1000;
     background: #f3f2f5;
-    border-bottom: 2px solid var(--accent-color);
+    border-bottom: 2px solid rgb(71,71,137);
   }
 
   
@@ -39,7 +39,7 @@
   }
   
   #nav .logo:hover span {
-    color: var(--accent-color);
+    color: rgb(86,82,155);
   }
   
   
@@ -63,8 +63,8 @@
   }
   
   #nav .nav-links a:hover {
-    color: #000;
-    background-color: var(--accent-color);
+    color: white;
+    background-color: #656589;
   }
   
   

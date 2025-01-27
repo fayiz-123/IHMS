@@ -1,7 +1,7 @@
 /* Root Colors */
 :root {
-    --primary-color: #9055ee; /* Light violet */
-    --secondary-color: #8e44ad; /* Muted purple */
+    --primary-color: #7020f1; /* Light violet */
+    --secondary-color: #633ef9; /* Muted purple */
     --accent-color: #f39c12; /* Softer yellow */
     --text-color: #333; /* Standard text color */
     --light-bg: #f9f9f9; /* Light background */
@@ -20,7 +20,7 @@
 
 /* Hero Section */
 #about #about-introduction {
-    background-color: var(--primary-color); /* Light violet background */
+    background-color: rgb(40, 40, 116); /* Light violet background */
     padding: 80px 20px;
     text-align: center;
     color: #fff;
@@ -51,7 +51,7 @@
 #about .container h2 {
     font-size: 32px;
     font-weight: bold;
-    color: var(--primary-color); /* Light violet for titles */
+    color: rgb(40, 40, 116); /* Light violet for titles */
     text-align: center;
     margin-bottom: 30px;
 }
@@ -79,7 +79,7 @@
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px var(--card-shadow);
+    box-shadow: 0 4px 8px blue;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -91,7 +91,7 @@
 #about .feature h3 {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--primary-color);
+    color: rgb(40, 40, 116);
     margin-bottom: 10px;
 }
 
@@ -131,39 +131,14 @@
 
 /* Contact Us Section */
 #about #contact-us {
-    background-color: var(--light-bg);
+    color: rgb(40, 40, 116);
     padding: 60px 20px;
 }
 
 #about #contact-us p {
     font-size: 1.2rem;
     text-align: center;
-    color: var(--primary-color);
-    margin-bottom: 30px;
-}
-
-/* Newsletter Form Styles */
-#about .newsletter-form input[type="email"] {
-    padding: 12px;
-    width: 60%;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-}
-
-#about .newsletter-form button {
-    padding: 12px 20px;
-    border: none;
-    background-color: var(--primary-color);
-    color: #fff;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-#about .newsletter-form button:hover {
-    background-color: var(--secondary-color);
+    margin-bottom: -80px;
 }
 
 /* Responsive Design */
