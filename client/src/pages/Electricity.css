@@ -29,7 +29,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: var(--primary-color); /* Light violet background */
+  background:  rgb(40, 40, 116); /* Light violet background */
   color: #fff;
 }
 
@@ -42,7 +42,7 @@
 #elec .hero-section h1 {
   font-size: 2.8rem;
   margin-bottom: 20px;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px rgba(143, 11, 11, 0.2);
 }
 
 #elec .hero-section .subheading {
@@ -70,7 +70,7 @@
   min-width: 280px;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px var(--card-shadow);
+  box-shadow: 0 4px 8px blue;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -93,7 +93,7 @@
 #elec .service-info h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
-  color: var(--primary-color); /* Light violet for titles */
+  color: rgb(40, 40, 116) ; /* Light violet for titles */
 }
 
 #elec .service-info p {
@@ -103,7 +103,7 @@
 }
 
 #elec .service-info p strong {
-  color: var(--secondary-color); /* Muted purple for emphasized text */
+  color: rgb(40, 40, 116); /* Muted purple for emphasized text */
   font-weight: bold;
 }
 
@@ -112,8 +112,8 @@
   display: inline-flex;
   align-items: center;
   padding: 10px 20px;
-  background: var(--accent-color); /* Softer yellow for buttons */
-  color: #000;
+  background: rgb(43, 43, 154); /* Softer yellow for buttons */
+  color: #faf3f3;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
@@ -123,7 +123,7 @@
 }
 
 #elec .animated-button:hover {
-  background: var(--primary-color); /* Hover effect with light violet */
+  background:#116A7B; /* Hover effect with light violet */
   color: #fff;
 }
 

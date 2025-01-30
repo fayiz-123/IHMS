@@ -9,21 +9,21 @@ const Electricity = () => {
 
   const electricityServices = [
     {
-      id: "E001",
+      id: "E001", type:"residential",
       title: "Residential Electrical Services",
-      description: "Comprehensive electrical repair and installation for your home.",
+      description: "Comprehensive electrical repair & installation for home.",
       price: "₹1500",
       image: "/images/plumm.jpg",
     },
     {
-      id: "E002",
+      id: "E002",type:"commercial",
       title: "Commercial Electrical Services",
       description: "Expert solutions for your business's electrical needs.",
       price: "₹2500",
       image: "/images/plumm.jpg",
     },
     {
-      id: "E003",
+      id: "E003",type:"emergency",
       title: "Emergency Electrical Services",
       description: "24/7 emergency services to fix urgent electrical issues.",
       price: "₹3500",
@@ -59,22 +59,15 @@ const Electricity = () => {
                   <p>
                     <strong>Price:</strong> {service.price}
                   </p>
-                  <button className="animated-button">
+                 <Link to={`/electricity/${service.type}/${service.id}`}> <button className="animated-button">
                     <span className="text">Learn More</span>
                     <svg className="arr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                       <path d="M10 17l5-5-5-5v10z" />
                     </svg>
-                  </button>
+                  </button></Link>
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Book Now Button */}
-          <div className="book-now-section">
-            <Link to="/book-now" className="book-now-button">
-              Book Now
-            </Link>
           </div>
           
         </div>

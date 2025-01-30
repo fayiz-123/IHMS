@@ -1,126 +1,125 @@
 /* Applying root variables for consistent theming */
 :root {
-    --primary-color: #8947f4; /* Light violet */
-    --secondary-color: #8e44ad; /* Muted purple */
-    --accent-color: #f39c12; /* Softer yellow */
-    --text-color: #333; /* Standard text color */
-    --light-bg: #f9f9f9; /* Light background */
-    --card-shadow: rgba(0, 0, 0, 0.1); /* Subtle card shadow */
-    --font-family: "Poppins", sans-serif;
-  }
-  
-  /* General reset for the page */
+  --primary-color: #8947f4; /* Light violet */
+  --secondary-color: #8e44ad; /* Muted purple */
+  --accent-color: #f39c12; /* Softer yellow */
+  --text-color: #333; /* Standard text color */
+  --light-bg: #f9f9f9; /* Light background */
+  --card-shadow: rgba(0, 0, 0, 0.1); /* Subtle card shadow */
+  --font-family: "Poppins", sans-serif;
+}
+
+/* General reset for the page */
+.service-details-container {
+  font-family: var(--font-family);
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--light-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px  rgb(43, 43, 154);
+}
+
+.service-details-header h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color:  rgb(43, 43, 154); /* Light violet */
+  margin-bottom: 20px;
+}
+
+.service-details-header img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+/* Main content styling */
+.service-details-content h2 {
+  font-size: 1.8rem;
+  color:  rgb(43, 43, 154);
+  margin-top: 20px;
+}
+
+.service-details-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.service-details-content ul {
+  list-style: disc;
+  padding-left: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.service-details-content ol {
+  list-style: decimal;
+  padding-left: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+blockquote {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin: 20px 0;
+  padding-left: 20px;
+  border-left: 4px solid  rgb(43, 43, 154); /* Muted purple for testimonials */
+  color: var(--text-color);
+}
+
+/* Back button styling */
+.back-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  background-color:  rgb(43, 43, 154);
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button:hover {
+  background-color:  #116A7B; /* Softer yellow on hover */
+}
+
+.back-button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
   .service-details-container {
-    font-family: var(--font-family);
-    padding: 40px;
-    max-width: 900px;
-    margin: 0 auto;
-    background: var(--light-bg);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px var(--card-shadow);
+    padding: 20px;
   }
-  
+
   .service-details-header h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: var(--primary-color); /* Light violet */
-    margin-bottom: 20px;
+    font-size: 2.2rem;
   }
-  
-  .service-details-header img {
-    display: block;
-    width: 100%;
-    height: auto;
-    margin: 20px 0;
-    border-radius: 8px;
-  }
-  
-  /* Main content styling */
+
   .service-details-content h2 {
-    font-size: 1.8rem;
-    color: var(--text-color);
-    margin-top: 20px;
+    font-size: 1.6rem;
   }
-  
-  .service-details-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: var(--text-color);
-  }
-  
-  .service-details-content ul {
-    list-style: disc;
-    padding-left: 20px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: var(--text-color);
-  }
-  
+
+  .service-details-content ul,
   .service-details-content ol {
-    list-style: decimal;
-    padding-left: 20px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: var(--text-color);
+    font-size: 1rem;
   }
-  
-  blockquote {
-    font-style: italic;
-    font-size: 1.1rem;
-    margin: 20px 0;
-    padding-left: 20px;
-    border-left: 4px solid var(--secondary-color); /* Muted purple for testimonials */
-    color: var(--text-color);
-  }
-  
-  /* Back button styling */
+
   .back-button {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 12px 30px;
-    background-color: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 5px;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: 10px 25px;
+    font-size: 1.1rem;
   }
-  
-  .back-button:hover {
-    background-color: var(--accent-color); /* Softer yellow on hover */
-  }
-  
-  .back-button:active {
-    transform: scale(0.98);
-  }
-  
-  /* Responsive design for smaller screens */
-  @media (max-width: 768px) {
-    .service-details-container {
-      padding: 20px;
-    }
-  
-    .service-details-header h1 {
-      font-size: 2.2rem;
-    }
-  
-    .service-details-content h2 {
-      font-size: 1.6rem;
-    }
-  
-    .service-details-content ul,
-    .service-details-content ol {
-      font-size: 1rem;
-    }
-  
-    .back-button {
-      padding: 10px 25px;
-      font-size: 1.1rem;
-    }
-  }
-  
+}

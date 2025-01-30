@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './ResidentialDetails.css'
 
 const ResidentialDetails = () => {
+  window.scrollTo(0, 0);
   return (
     <div className="service-details-container">
       <div className="service-details-header">

@@ -13,7 +13,7 @@ function SignUpPage() {
           <div className="container">
             <div className="col-left">
               <div className="sign-up-text">
-                <h2>Create Your Account!</h2>
+                <h2>Create Your Account !</h2>
                 <p>
                   Join us and manage your home services with ease. It's free and quick to sign up!
                   <br />

@@ -71,12 +71,7 @@ const Plumbing = () => {
               </div>
             ))}
           </div>
-           {/* Book Now Button */}
-           <div className="book-now-section">
-            <Link to="/book-now" className="book-now-button">
-              Book Now
-            </Link>
-            </div>
+           
         </div>
       </div>
       <Footer />

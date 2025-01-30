@@ -13,11 +13,11 @@ function LoginPage() {
           <div className="container">
             <div className="col-left">
               <div className="login-text">
-                <h2>Welcome Back!</h2>
+                <h2>Welcome Back !</h2>
                 <p>
                   Sign in to your account and manage your home services.
                   <br />
-                  Don't have an account? <Link to='/signup' className="btn">Sign Up</Link>
+                  Don't have an account? <br></br><Link to='/signup' className="btn">Sign Up</Link>
                 </p>
               </div>
             </div>
@@ -27,13 +27,13 @@ function LoginPage() {
                 <form action="">
                   <p>
                     <label>
-                      Username/Email address<span>*</span>
+                      Username/Email address<span></span>
                     </label>
                     <input type="text" placeholder="Username or Email" required="" />
                   </p>
                   <p>
                     <label>
-                      Password<span>*</span>
+                      Password<span></span>
                     </label>
                     <input type="password" placeholder="Password" required="" />
                   </p>

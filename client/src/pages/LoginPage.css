@@ -3,12 +3,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f9f9f9;
-    color: #333;
+    color: #0d0808;
     overflow-x: hidden;
 }
 
@@ -26,8 +27,9 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
+    box-shadow: 0 3px 6px blue;
 }
 
 /* Two columns - Left for text, Right for form */
@@ -42,7 +44,7 @@ body {
 
 #log .col-left {
     width: 50%;
-    background-color: #9055ee;
+    background-color: rgb(40, 40, 116) ;
     color: white;
     padding: 40px;
     display: flex;
@@ -57,11 +59,13 @@ body {
 }
 
 #log .login-text h2 {
+    text-align: center;
     font-size: 2rem;
     margin-bottom: 20px;
 }
 
 #log .login-text p {
+    line-height: 1.5;
     font-size: 1.1rem;
     margin-bottom: 20px;
     text-align: center;
@@ -81,7 +85,7 @@ body {
     font-size: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #9055ee;
+    color:  rgb(40, 40, 116); ;
 }
 
 #log .login-form form p {
@@ -89,6 +93,7 @@ body {
 }
 
 #log .login-form label {
+    color: rgb(40, 40, 116);
     display: block;
     font-weight: 600;
     margin-bottom: 5px;
@@ -99,14 +104,14 @@ body {
 #log .login-form input[type="submit"] {
     width: 100%;
     padding: 12px 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #0f0e0e;
     border-radius: 5px;
     font-size: 1rem;
     margin-bottom: 15px;
 }
 
 #log .login-form input[type="submit"] {
-    background-color: #f39c12;
+    background-color: rgb(40, 40, 116); 
     color: #fff;
     cursor: pointer;
     border: none;
@@ -114,7 +119,7 @@ body {
 }
 
 #log .login-form input[type="submit"]:hover {
-    background-color: #9055ee;
+    background-color: rgb(77, 77, 245) ;
 }
 
 #log .login-form input[type="submit"]:active {
@@ -123,7 +128,7 @@ body {
 
 #log .login-form a {
     font-size: 0.9rem;
-    color: #9055ee;
+    color: rgb(40, 40, 116); ;
     text-decoration: none;
     text-align: center;
 }

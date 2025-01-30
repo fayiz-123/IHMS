@@ -11,6 +11,7 @@ import Contact from "./pages/Contact"
 import ResidentialDetails from "./pages/ResidentialDetails"
 import CommercialElectricalDetails from "./pages/CommercialElectricalDetails"
 import EmergencyElectricalDetails from "./pages/EmergencyElectricalDetails"
+import AdminLoginForm from "./pages/AdminLoginForm"
 
 function App() {
   return (
@@ -26,9 +27,10 @@ function App() {
       <Route path="/wastemanagement" element={<WasteManagement/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/contact" element={<Contact/>}/>
-      <Route path="/electricity/residentidetails" element={<ResidentialDetails/>}/>
-      <Route path="/electricity/commercialdetails" element={<CommercialElectricalDetails/>}/>
-      <Route path="/electricity/emergencydetails" element={<EmergencyElectricalDetails/>}/>
+      <Route path="/electricity/residential/:id" element={<ResidentialDetails/>}/>
+      <Route path="/electricity/commercial/:id" element={<CommercialElectricalDetails/>}/>
+      <Route path="/electricity/emergency/:id" element={<EmergencyElectricalDetails/>}/>
+      <Route path="/admin" element={<AdminLoginForm/>}/>
     </Routes>
     
     
