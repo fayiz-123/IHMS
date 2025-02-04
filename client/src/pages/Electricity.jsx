@@ -1,35 +1,11 @@
 import React from "react";
-import "./Electricity.css"; // Assume your shared CSS is included here
+import "./Electricity.css"; // Shared CSS
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import { Link } from 'react-router-dom';
 
 const Electricity = () => {
   window.scrollTo(0, 0);
-
-  const electricityServices = [
-    {
-      id: "E001", type:"residential",
-      title: "Residential Electrical Services",
-      description: "Comprehensive electrical repair & installation for home.",
-      price: "₹1500",
-      image: "/images/plumm.jpg",
-    },
-    {
-      id: "E002",type:"commercial",
-      title: "Commercial Electrical Services",
-      description: "Expert solutions for your business's electrical needs.",
-      price: "₹2500",
-      image: "/images/plumm.jpg",
-    },
-    {
-      id: "E003",type:"emergency",
-      title: "Emergency Electrical Services",
-      description: "24/7 emergency services to fix urgent electrical issues.",
-      price: "₹3500",
-      image: "/images/plumm.jpg",
-    },
-  ];
 
   return (
     <>
@@ -40,36 +16,39 @@ const Electricity = () => {
             <div className="hero-content">
               <h1>Our Electricity Services</h1>
               <p className="subheading">
-                At IHMS, we offer a wide range of professional electrical services designed to meet the needs of both residential and commercial properties. Whether you’re looking for reliable home electrical solutions, efficient systems for your business, or urgent emergency electrical services, our experienced team is here to ensure your electrical needs are met with expertise and care.
+                At IHMS, we provide top-quality electrical services for both residential and commercial properties. Our team of certified electricians ensures safe and efficient electrical installations, repairs, and maintenance. 
               </p>
             </div>
           </div>
-          
-          <div className="services-container section-flex">
-            {electricityServices.map((service) => (
-              <div key={service.id} className="color-card red">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="service-image"
-                />
-                <div className="service-info">
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <p>
-                    <strong>Price:</strong> {service.price}
-                  </p>
-                 <Link to={`/electricity/${service.type}/${service.id}`}> <button className="animated-button">
-                    <span className="text">Learn More</span>
-                    <svg className="arr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                      <path d="M10 17l5-5-5-5v10z" />
-                    </svg>
-                  </button></Link>
-                </div>
-              </div>
-            ))}
+
+          <div className="electricity-details">
+            <p>
+              Electricity is an essential part of modern life, powering everything from home appliances to industrial machinery. A well-maintained electrical system ensures safety, efficiency, and reliability in your daily operations. Whether you're facing frequent power outages, faulty wiring, or planning a complete electrical setup, our skilled professionals are here to help.
+            </p>
+
+            <p>
+              We specialize in a wide range of electrical solutions, including wiring and rewiring, circuit breaker installations, electrical panel upgrades, lighting solutions, and surge protection. Our experts assess your specific needs and provide tailored solutions that meet industry standards.
+            </p>
+
+            <p>
+              Safety is our top priority. Poor electrical installations and outdated wiring can pose serious risks, including fire hazards and electrical shocks. Our licensed electricians use high-quality materials and follow strict safety guidelines to ensure your home and business remain secure.
+            </p>
+
+            <p>
+              Whether you need minor electrical repairs or large-scale installations, our experienced team is committed to delivering prompt and reliable services. We believe in transparency and offer competitive pricing with no hidden charges.
+            </p>
+
+            <p>
+              Need immediate assistance? Our 24/7 emergency electrical services are designed to address urgent electrical failures, ensuring minimal downtime for your home or business.
+            </p>
           </div>
-          
+
+          {/* Book Now Button Section */}
+          <div className="book-now-section">
+            <Link to="/book-now">
+              <button className="book-now-button">Book Now</button>
+            </Link>
+          </div>
         </div>
       </div>
       <Footer />

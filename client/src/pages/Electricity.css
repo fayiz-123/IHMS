@@ -24,12 +24,12 @@
 /* Hero Section */
 #elec .hero-section {
   position: relative;
-  height: 70vh;
+  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background:  rgb(40, 40, 116); /* Light violet background */
+  background: rgb(40, 40, 116); /* Light violet background */
   color: #fff;
 }
 
@@ -53,87 +53,54 @@
   padding-left: 15px;
 }
 
-/* Services Section */
-#elec .services-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 50px 20px;
-  background: var(--light-bg);
-}
-
-#elec .color-card {
-  background-color: #fff;
-  flex: 1 1 calc(33.333% - 20px);
-  max-width: 320px;
-  min-width: 280px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px blue;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#elec .color-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-#elec .service-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-#elec .service-info {
+/* Electricity Details Section */
+#elec .electricity-details {
+  max-width: 900px;
+  margin: 40px auto;
   padding: 20px;
-  text-align: left;
+  background: var(--light-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px var(--card-shadow);
 }
 
-#elec .service-info h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: rgb(40, 40, 116) ; /* Light violet for titles */
+#elec .electricity-details p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: var(--text-color);
 }
 
-#elec .service-info p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-#elec .service-info p strong {
-  color: rgb(40, 40, 116); /* Muted purple for emphasized text */
+#elec .electricity-details p strong {
+  color: rgb(40, 40, 116);
   font-weight: bold;
 }
 
-/* Button Styles */
-#elec .animated-button {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 20px;
-  background: rgb(43, 43, 154); /* Softer yellow for buttons */
-  color: #faf3f3;
-  border: none;
+/* Book Now Button Section */
+#elec .book-now-section {
+  text-align: center;
+  margin: 40px auto;
+}
+
+#elec .book-now-button {
+  padding: 12px 30px;
+  background-color: rgb(43, 43, 154); /* Primary theme color */
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
   border-radius: 5px;
-  font-size: 1rem;
-  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
-#elec .animated-button:hover {
-  background:#116A7B; /* Hover effect with light violet */
-  color: #fff;
+#elec .book-now-button:hover {
+  background-color: #116A7B; /* Accent color on hover */
+  transform: scale(1.05);
 }
 
-#elec .animated-button .text {
-  margin-right: 10px;
-}
-
-#elec .animated-button svg {
-  width: 18px;
-  height: 18px;
+#elec .book-now-button:active {
+  transform: scale(0.98);
 }
 
 /* Responsive Design */
@@ -146,41 +113,14 @@
     font-size: 1rem;
   }
 
-  #elec .services-container {
-    flex-direction: column;
-    align-items: center;
+  #elec .electricity-details {
+    padding: 15px;
   }
 
-  #elec .color-card {
-    flex: 1 1 100%;
+  #elec .electricity-details p {
+    font-size: 1rem;
   }
 }
-/* Book Now Button Section */
-#elec .book-now-section {
-  text-align: center;
-  margin-top: 40px;
-}
-
-#elec .book-now-button {
-  padding: 12px 30px;
-  background-color: #9055ee; /* Color that matches your theme */
-  color: white;
-  font-size: 1.2rem;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#elec .book-now-button:hover {
-  background-color: #f39c12; /* Accent color on hover */
-  transform: scale(1.05);
-}
-
-#elec .book-now-button:active {
-  transform: scale(0.98);
-}
-
 
 /* Animations */
 @keyframes fadeIn {
