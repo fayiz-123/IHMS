@@ -9,6 +9,8 @@ import WasteManagement from "./pages/WasteManagement"
 import About from "./pages/About"
 import Contact from "./pages/Contact"
 import BookingForm from "./components/BookingForm"
+import AdminDash from "./pages/AdminDash"
+import UserDash from "./pages/UserDash" 
 
 function App() {
   return (
@@ -24,7 +26,8 @@ function App() {
       <Route path="/wastemanagement" element={<WasteManagement/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/contact" element={<Contact/>}/>
-     
+      <Route path="/admindash" element={<AdminDash/>}/>
+      <Route path="/userdash" element={<UserDash/>}/>
     </Routes>
     
     
