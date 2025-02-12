@@ -10,7 +10,12 @@ import About from "./pages/About"
 import Contact from "./pages/Contact"
 import BookingForm from "./components/BookingForm"
 import AdminDash from "./pages/AdminDash"
-import UserDash from "./pages/UserDash" 
+import AdminLogin from "./pages/AdminLogin"
+import AdminRegistration from "./pages/AdminRegistration"
+import UserServices from "./pages/UserServices"
+import ContactMessages from "./pages/ContactMessages"
+import UserBookedServices from "./pages/UserBookedServices"
+
 
 function App() {
   return (
@@ -26,8 +31,19 @@ function App() {
       <Route path="/wastemanagement" element={<WasteManagement/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/contact" element={<Contact/>}/>
-      <Route path="/admindash" element={<AdminDash/>}/>
-      <Route path="/userdash" element={<UserDash/>}/>
+      <Route path="/myBookings" element={<UserBookedServices />} />
+      <Route path="/admin-dashboard" element={<AdminDash/>}/>
+      <Route path="/admin" element={<AdminLogin/>}/>
+      <Route path="/adminRegistration" element={<AdminRegistration/>}/>
+      <Route path="/userBookings" element={<UserServices/>}/>
+      <Route path="/contactMessages" element={<ContactMessages />} />
+
+
+     
+
+
+
+      
     </Routes>
     
     

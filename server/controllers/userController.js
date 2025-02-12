@@ -1,4 +1,5 @@
 const User = require('../models/userModel')
+const Service = require('../models/serviceModel')
 const bcrypt = require('bcrypt')
 require('dotenv').config
 const jwt = require('jsonwebtoken')
@@ -7,6 +8,8 @@ const jwt = require('jsonwebtoken')
 async function signup(req, res) {
     try {
         const { username, password, email, phone } = req.body
+       
+        
 
         const existingUser = await User.findOne({ email: email })
         if (existingUser) {
@@ -22,10 +25,13 @@ async function signup(req, res) {
             const token = jwt.sign({
                 userID: savedUser._id
             },process.env.JWT_SECRET,{expiresIn:'12h'})
-            res.status(201).json({ success: true, message: "Account Created Successfully", savedUser,token })
+           
+
+            return res.status(201).json({ success: true, message: "Account Created Successfully", savedUser,token })
         }
 
     } catch (error) {
+        console.error("Signup error:", error); 
         return res.status(500).json({ success: false, message: error.message })
     }
 
@@ -47,7 +53,8 @@ async function login(req, res) {
             userID:existUser._id
         },process.env.JWT_SECRET,{expiresIn:'12h'})
 
-        return res.status(200).json({success: true, token })
+
+        return res.status(200).json({success: true, token,username:existUser.username })
 
 
     } catch (error) {
@@ -56,11 +63,35 @@ async function login(req, res) {
     }
 }
 
+//profile
+
+async function profile(req,res) {
+    try {
+        const userId = req.user._id
+        const userProfile = await User.findById(userId)
+       
+        if(!userProfile){
+           return res.status(400).json({success:false,message:"no user found"})
+        }
+        
+        
+        res.status(200).json({success:true,userProfile})
+        
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message })
+    }
+   
+
+}
+
+
+
 
 
 
 module.exports = {
     signup,
     login,
+    profile,
     
 }

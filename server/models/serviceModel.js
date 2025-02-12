@@ -23,6 +23,11 @@ const serviceSchema = new mongoose.Schema({
         enum:["electricity","plumbing", "wasteManagement"],
         required:[true,"Service is required"]
     },
+    status:{
+        type:String,
+        enum:["booked","confirmed","completed"],
+        required:[true,"Status is required"]
+    },
     userId: { 
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User', 

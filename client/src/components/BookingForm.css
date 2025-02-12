@@ -54,7 +54,7 @@
 
 #book form .submit-button {
   padding: 14px 35px;
-  background-color: #8947f4;
+  background-color:rgb(40, 40, 116);
   color: white;
   font-size: 1.2rem;
   font-weight: bold;
@@ -65,11 +65,11 @@
 }
 
 #book form .submit-button:hover {
-  background-color: #8e44ad;
+  background-color: #083d72;
 }
 
 #book form .submit-button:active {
-  background-color: #7e39b6;
+  background-color:  #114f8e;
 }
 
 #book .error-message {
@@ -100,7 +100,7 @@
 }
 #success-message {
   padding: 20px;
-  background-color: #8947f4; /* Accent color */
+  background-color:rgb(40, 40, 116); /* Accent color */
   color: white;
   text-align: center;
   border-radius: 10px;

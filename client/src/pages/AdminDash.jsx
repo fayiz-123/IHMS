@@ -1,75 +1,112 @@
-import React from 'react'
-import'./AdminDash.css'
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import AdminSidebar from "../components/AdminSidebar";
+import "./AdminDash.css";
 
 function AdminDash() {
-  return (
-    <div>
-        <div className="container">
-  {/* Sidebar */}
-  <aside className="sidebar">
-    <h2>Admin Panel</h2>
-    <nav>
-      <ul>
-        <li>
-          <a href="#">Dashboard</a>
-        </li>
-        <li>
-          <a href="#">Users</a>
-        </li>
-        <li>
-          <a href="#">Reports</a>
-        </li>
-        <li>
-          <a href="#">Logout</a>
-        </li>
-      </ul>
-    </nav>
-  </aside>
-  {/* Main Content */}
-  <main className="main-content">
-    <header>
-      <h1>Welcome, Admin!</h1>
-    </header>
-    {/* Cards Section */}
-    {/* Table Section */}
-    <section className="table-section">
-      <h2>Recent Activity</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>User</th>
-            <th>Email</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>001</td>
-            <td>John Doe</td>
-            <td>john_doe@gmail.com</td>
-            <td>2025-01-01</td>
-          </tr>
-          <tr>
-            <td>002</td>
-            <td>Jane Smith</td>
-            <td>Updated Profile</td>
-            <td>2025-01-02</td>
-          </tr>
-          <tr>
-            <td>003</td>
-            <td>Mike Johnson</td>
-            <td>Logged Out</td>
-            <td>2025-01-03</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
-</div>
+  const navigate = useNavigate();
+  const [adminName, setAdminName] = useState("");
+  const [users, setUsers] = useState([]); // State to store users
+  const [error, setError] = useState(null); // State to handle errors
 
+  useEffect(() => {
+    const storedAdminName = localStorage.getItem("adminName");
+    if (storedAdminName) {
+      setAdminName(storedAdminName);
+    } else {
+      navigate("/adminlogin"); // Redirect if not logged in
+    }
+
+    // Fetch users from backend
+    const fetchUsers = async () => {
+      try {
+        console.log("Sending request to backend...");
+        
+        // Get token from localStorage (or another place where it is stored)
+        const token = localStorage.getItem("adminToken");
+        
+        if (!token) {
+          setError("Admin not authenticated. Please login again.");
+          return; // Stop further execution if no token is found
+        }
+        
+        // Make the request with the token in the Authorization header
+        const response = await axios.get("http://localhost:8000/admin/getUsers", {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include token in the headers
+          },
+        });
+        
+        if (response.data.success) {
+          setUsers(response.data.allUsers);
+          console.log("Users data:", response.data.allUsers);
+        } else {
+          setError("Failed to fetch users.");
+        }
+      } catch (error) {
+        setError("Error fetching users: " + error.message);
+        console.error("Error fetching users:", error);
+      }
+    };
+    
+
+    fetchUsers();
+  }, [navigate]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("adminToken");
+    localStorage.removeItem("adminName");
+    navigate("/admin");
+  };
+
+  return (
+    <div id="ad">
+      <div className="container">
+        {/* Sidebar as separate component */}
+        <AdminSidebar handleLogout={handleLogout} />
+
+        {/* Main Content */}
+        <main className="main-content">
+          <header>
+            <h1>Welcome, {adminName || "Admin"}!</h1>
+          </header>
+
+          {/* Table Section */}
+          <section className="table-section">
+            <h2>Recent Users</h2>
+            {error && <p className="error">{error}</p>}  {/* Display error message if any */}
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Date Created</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.length > 0 ? (
+                  users.map((user, index) => (
+                    <tr key={user._id}>
+                      <td>{index + 1}</td>
+                      <td>{user.username}</td>
+                      <td>{user.email}</td>
+                      <td>{new Date(user.createdAt).toLocaleDateString()}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="4">No users found.</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </section>
+        </main>
+      </div>
     </div>
-  )
+  );
 }
 
-export default AdminDash
+export default AdminDash;
