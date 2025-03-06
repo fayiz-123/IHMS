@@ -24,7 +24,7 @@ function Nav() {
     localStorage.removeItem("authToken");
     localStorage.removeItem("username");
     setUser(null); // Reset the user state
-    navigate("/"); // Redirect to homepage or login page
+    navigate("/login"); // Redirect to homepage or login page
   };
 
   return (

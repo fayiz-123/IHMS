@@ -1,5 +1,5 @@
 import React from "react";
-import "./WasteManagement.css"; // Include the CSS
+import "./WasteManagement.css"; 
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import { Link } from 'react-router-dom';

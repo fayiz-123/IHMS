@@ -4,10 +4,9 @@ import AdminSidebar from "../components/AdminSidebar";
 import "./AdminDash.css";
 
 function UserServices() {
-  const [users, setUsers] = useState([]); // Initializing services as an empty array
-  const [error, setError] = useState(null); // To handle any errors
+  const [users, setUsers] = useState([]); 
+  const [error, setError] = useState(null);
 
-  // Fetch services when the component mounts
   useEffect(() => {
     const fetchServices = async () => {
       try {
@@ -24,7 +23,7 @@ function UserServices() {
         });
 
         if (response.data.success) {
-          setUsers(response.data.allServices); // Store the fetched services
+          setUsers(response.data.allServices); 
         } else {
           setError("Failed to fetch services.");
         }
@@ -37,7 +36,7 @@ function UserServices() {
     fetchServices();
   }, []);
 
-  // Handle update of service status
+
   const handleUpdate = async (serviceId, newStatus) => {
     try {
       const token = localStorage.getItem("adminToken");
@@ -48,7 +47,7 @@ function UserServices() {
 
       const response = await axios.put(
         `http://localhost:8000/admin/updateService/${serviceId}`,
-        { status: newStatus }, // Set the status based on dropdown selection
+        { status: newStatus }, 
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -57,7 +56,7 @@ function UserServices() {
       );
 
       if (response.data.success) {
-        // Update the state with the new data
+        
         setUsers((prevUsers) =>
           prevUsers.map((user) =>
             user._id === serviceId ? { ...user, status: newStatus } : user
@@ -76,24 +75,24 @@ function UserServices() {
   const handleLogout = () => {
     localStorage.removeItem("adminToken");
     localStorage.removeItem("adminName");
-    window.location.href = "/admin"; // Redirect to admin login
+    window.location.href = "/admin"; 
   };
 
   return (
     <div id="ad">
       <div className="container">
-        {/* Sidebar as separate component */}
+       
         <AdminSidebar handleLogout={handleLogout} />
 
-        {/* Main Content */}
+       
         <main className="main-content">
           <header>
             <h1>Booked Services</h1>
           </header>
 
-          {/* Table Section */}
+          
           <section className="table-section">
-            {error && <p className="error">{error}</p>} {/* Display error message if any */}
+            {error && <p className="error">{error}</p>}
             <h2>Booked Services</h2>
             <table>
               <thead>
@@ -118,12 +117,12 @@ function UserServices() {
                       <td>
                         <select
                           value={user.status}
-                          onChange={(e) => handleUpdate(user._id, e.target.value)} // Call handleUpdate with the selected status
+                          onChange={(e) => handleUpdate(user._id, e.target.value)} 
                         >
                           <option value="Booked">Booked</option>
                           <option value="Confirmed">Confirm Service</option>
                           <option value="Completed">Complete Service</option>
-                          {/* Add more options if needed in the future */}
+                          
                         </select>
                       </td>
                     </tr>

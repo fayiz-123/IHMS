@@ -22,38 +22,37 @@ function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
-    setMessage(""); // Clear any previous messages
+    setMessage(""); 
   
     try {
       const response = await axios.post("http://localhost:8000/login", formData);
   
-      // Log the response data for debugging
+      
       console.log("Server Response:", response.data);
   
       if (response.data.success) {
-        // Store the authToken in localStorage
+        
         localStorage.setItem("authToken", response.data.token);
-        localStorage.setItem("username", response.data.username);  // Store the token
-        // Optionally, store user info if needed in future for other purposes
+        localStorage.setItem("username", response.data.username);  
      
-        setMessage("Login successful!"); // Set success message
-        navigate("/");  // Redirect to the homepage or desired route
+        setMessage("Login successful!"); 
+        navigate("/");  
       } else {
-        setError(response.data.message); // Display error message
+        setError(response.data.message); 
       }
     } catch (err) {
-      console.error("Error details:", err);  // Log the entire error object for debugging
+      console.error("Error details:", err);  
   
-      // If there's a response error, log its details
+     
       if (err.response) {
         console.error("Error response from server:", err.response.data);
         setError(err.response.data.message || "Invalid credentials or server error");
       } else if (err.request) {
-        // This means the request was made, but no response was received
+        
         console.error("No response received:", err.request);
         setError("No response from the server, please try again.");
       } else {
-        // This handles any other errors, like request setup errors
+        
         console.error("Error message:", err.message);
         setError("Something went wrong, please try again later.");
       }

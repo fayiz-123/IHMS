@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./SignUp.css"; // Ensure this file exists and styles the page
+import "./SignUp.css"; 
 import Footer from "../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -10,18 +10,17 @@ function SignUp() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");  // For error messages
-  const [success, setSuccess] = useState("");  // For success messages
-  const navigate = useNavigate();
+  const [error, setError] = useState("");  
+  const [success, setSuccess] = useState("");  
 
   window.scrollTo(0, 0);
+  const navigate = useNavigate()
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    setError(""); // Clear previous errors
-    setSuccess(""); // Clear previous success messages
+    setError(""); 
+    setSuccess(""); 
   
-    // Check if the passwords match
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
@@ -32,28 +31,21 @@ function SignUp() {
   
     try {
       const response = await axios.post("http://localhost:8000/signup", requestData);
-      console.log("Response from backend:", response);  // Log the full response
+      console.log("Response from backend:", response);  
   
       if (response.data.success) {
-        localStorage.setItem("user", JSON.stringify(response.data.savedUser)); // Assuming savedUser is what you want to store
-        localStorage.setItem("token", response.data.token); // Store token if needed
         setSuccess(response.data.message);
-        setTimeout(() => navigate("/login"), 2000);
+        setTimeout(() => navigate("/login"), 2000);  // Navigate to login page
       } else {
-        console.log("Error message from backend:", response.data.message);
         setError(response.data.message || "An unknown error occurred.");
       }
     } catch (err) {
       console.error("Error during signup:", err);
-      // Check if the error is coming from network failure or if it's a backend error
       if (err.response) {
-        console.error("Error response:", err.response.data);
         setError(err.response.data.message || "Signup failed. Please try again.");
       } else if (err.request) {
-        console.error("No response received:", err.request);
         setError("No response from server, please try again.");
       } else {
-        console.error("Error message:", err.message);
         setError("Signup failed. Please try again.");
       }
     }

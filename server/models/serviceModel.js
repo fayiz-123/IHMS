@@ -11,7 +11,7 @@ const serviceSchema = new mongoose.Schema({
         match: [/\S+@\S+\.\S+/, "Please provide valid email address"]
     },
     phone:{
-        type:String,
+        type:Number,
         required:[true,"Phone is required"],       
     },
     address:{

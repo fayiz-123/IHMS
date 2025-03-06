@@ -4,7 +4,7 @@ const Service = require('../models/serviceModel')
 const Contact = require('../models/contactModels')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-require('dotenv').config
+require('dotenv').config()
 
 
 //adminRegistration

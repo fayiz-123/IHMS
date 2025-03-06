@@ -1,24 +1,19 @@
 const User = require('../models/userModel')
-const Service = require('../models/serviceModel')
 const bcrypt = require('bcrypt')
-require('dotenv').config
+require('dotenv').config()
 const jwt = require('jsonwebtoken')
+const verifygmail = require('../utils/verifyGmail')
 
 //signup
 async function signup(req, res) {
     try {
         const { username, password, email, phone } = req.body
-       
-        
-
         const existingUser = await User.findOne({ email: email })
         if (existingUser) {
-            res.status(400).json({ success: false, message: "Email already in use", })
-
+           return res.status(400).json({ success: false, message: "Email already in use", })
         }
         else {
-            const hashedPassword = await bcrypt.hash(password, 10)
-            
+            const hashedPassword = await bcrypt.hash(password, 10)    
             const newUser = new User({
                 username: username, email: email, password: hashedPassword, phone:phone })
             const savedUser = await newUser.save()
@@ -26,12 +21,11 @@ async function signup(req, res) {
                 userID: savedUser._id
             },process.env.JWT_SECRET,{expiresIn:'12h'})
            
-
-            return res.status(201).json({ success: true, message: "Account Created Successfully", savedUser,token })
+            res.status(201).json({ success: true, message: "Account Created Successfully", savedUser,token })
+           await verifygmail(email)
         }
 
     } catch (error) {
-        console.error("Signup error:", error); 
         return res.status(500).json({ success: false, message: error.message })
     }
 

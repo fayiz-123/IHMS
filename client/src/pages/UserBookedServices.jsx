@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
-import "./UserBookedServices.css"; // Import the CSS file
+import "./UserBookedServices.css"; 
 
 function UserBookedServices() {
   const [services, setServices] = useState([]);
@@ -25,7 +25,7 @@ function UserBookedServices() {
         });
 
         if (response.data.success) {
-          setServices(response.data.allServices || []); // Corrected response field name to `myBookings`
+          setServices(response.data.allServices || []); 
         } else {
           setError("Failed to fetch booked services.");
         }

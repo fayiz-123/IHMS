@@ -7,7 +7,7 @@ import "./AdminDash.css";
 function AdminDash() {
   const navigate = useNavigate();
   const [adminName, setAdminName] = useState("");
-  const [users, setUsers] = useState([]); // State to store users
+  const [users, setUsers] = useState([]); 
   const [error, setError] = useState(null); // State to handle errors
 
   useEffect(() => {
@@ -18,20 +18,19 @@ function AdminDash() {
       navigate("/adminlogin"); // Redirect if not logged in
     }
 
-    // Fetch users from backend
+   
     const fetchUsers = async () => {
       try {
         console.log("Sending request to backend...");
-        
-        // Get token from localStorage (or another place where it is stored)
+            
         const token = localStorage.getItem("adminToken");
         
         if (!token) {
           setError("Admin not authenticated. Please login again.");
-          return; // Stop further execution if no token is found
+          return; 
         }
         
-        // Make the request with the token in the Authorization header
+        
         const response = await axios.get("http://localhost:8000/admin/getUsers", {
           headers: {
             Authorization: `Bearer ${token}`, // Include token in the headers
