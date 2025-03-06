@@ -4,45 +4,54 @@ import "./Nav.css";
 
 function Nav() {
   const [user, setUser] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false); // Mobile menu state
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Retrieve username and token from localStorage
     const authToken = localStorage.getItem("authToken");
     const username = localStorage.getItem("username");
 
-    // If both authToken and username exist, set the user
     if (authToken && username) {
-      setUser({ username }); // Directly set the username from localStorage
+      setUser({ username });
     } else {
-      setUser(null); // No user logged in
+      setUser(null);
     }
-  }, []); // Runs once when the component mounts
+  }, []);
 
   const handleLogout = () => {
-    // Remove authToken and username from localStorage
     localStorage.removeItem("authToken");
     localStorage.removeItem("username");
-    setUser(null); // Reset the user state
-    navigate("/login"); // Redirect to homepage or login page
+    setUser(null);
+    navigate("/login");
   };
 
   return (
     <div id="nav">
       <header>
         <nav>
+          {/* Logo */}
           <div className="logo">
             <span>I H M S</span>
           </div>
-          <ul className="nav-links">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/myBookings">Bookings</Link></li>
+
+          {/* Mobile Menu Button */}
+          <div
+            className={`menu-icon ${menuOpen ? "toggle" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <div className="nav-icon"></div>
+          </div>
+
+          {/* Navigation Links */}
+          <ul className={`nav-links ${menuOpen ? "nav-active" : ""}`}>
+            <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+            <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
+            <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
+            <li><Link to="/myBookings" onClick={() => setMenuOpen(false)}>Bookings</Link></li>
 
             {user ? (
               <>
-                <li className="user-name">Hello, {user.username}!</li> {/* Display username */}
+                <li className="user-name">Hello, {user.username}!</li>
                 <li>
                   <button onClick={handleLogout} className="logout-btn">
                     Logout
@@ -50,7 +59,7 @@ function Nav() {
                 </li>
               </>
             ) : (
-              <li><Link to="/login">Login</Link></li>
+              <li><Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link></li>
             )}
           </ul>
         </nav>

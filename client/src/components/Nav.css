@@ -61,59 +61,58 @@
   background-color: #656589;
 }
 
+/* Hamburger Menu Icon */
 #nav .menu-icon {
   display: none;
   cursor: pointer;
   width: 30px;
   height: 25px;
   position: relative;
-  z-index: 1100;
+  z-index: 1500; /* Ensure it's always clickable */
+}
+
+#nav .menu-icon .nav-icon,
+#nav .menu-icon .nav-icon::before,
+#nav .menu-icon .nav-icon::after {
+  background-color: #0d0254 !important; /* Dark blue for visibility */
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  left: 0;
+  transition: all 0.3s ease-in-out;
 }
 
 #nav .menu-icon .nav-icon {
-  position: absolute;
   top: 50%;
-  left: 0;
   transform: translateY(-50%);
-  width: 100%;
-  height: 3px;
-  background-color: #fff;
-  transition: all 0.3s ease-in-out;
-}
-
-#nav .menu-icon .nav-icon::before,
-#nav .menu-icon .nav-icon::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  background-color: #fff;
-  left: 0;
-  transition: all 0.3s ease-in-out;
 }
 
 #nav .menu-icon .nav-icon::before {
+  content: "";
   top: -8px;
 }
 
 #nav .menu-icon .nav-icon::after {
+  content: "";
   top: 8px;
 }
 
-#nav .menu-icon .toggle .nav-icon {
-  background: transparent;
+/* When menu is toggled (open state) */
+#nav .menu-icon.toggle .nav-icon {
+  background: none; /* Keep visibility */
 }
 
-#nav .menu-icon .toggle .nav-icon::before {
+#nav .menu-icon.toggle .nav-icon::before {
   transform: rotate(-45deg);
   top: 0;
 }
 
-#nav .menu-icon .toggle .nav-icon::after {
+#nav .menu-icon.toggle .nav-icon::after {
   transform: rotate(45deg);
   top: 0;
 }
 
+/* Mobile Menu Styling */
 #nav .nav-links {
   position: fixed;
   background: rgba(0, 0, 0, 0.95);
@@ -131,7 +130,7 @@
   pointer-events: none;
 }
 
-#nav .nav-links .nav-active {
+#nav .nav-links.nav-active {
   transform: translateX(0%);
   opacity: 1;
   pointer-events: auto;
@@ -145,10 +144,7 @@
   font-size: 1em;
 }
 
-#nav .nav-links {
-  position: fixed;
-}
-
+/* Ensure the menu icon is always visible on mobile */
 #nav .menu-icon {
   display: block;
   margin-left: auto;
@@ -169,22 +165,21 @@
   background-color: #656589;
   transform: scale(1.05);
 }
+
 /* Style for the username in the navbar */
 #nav .nav-links .user-name {
-  color: #040469; /* White color for the username to make it visible */
-  font-size: 1.2em; /* Adjust font size if needed */
-  font-weight: bold; /* Make the username bold for emphasis */
-  margin-right: 15px; /* Optional: Add some margin to space it out */
+  color: #040469;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-right: 15px;
 }
 
-/* Style for when the username is hovered */
 #nav .nav-links .user-name:hover {
-  color: #656589; /* Change the color on hover */
-  cursor: pointer; /* Optional: Add cursor pointer for interactivity */
+  color: #656589;
+  cursor: pointer;
 }
 
-
-/* Adjustments for navigation */
+/* Adjustments for larger screens */
 @media screen and (min-width: 1101px) {
   #nav .nav-links {
     display: flex;
