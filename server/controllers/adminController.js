@@ -4,6 +4,7 @@ const Service = require('../models/serviceModel')
 const Contact = require('../models/contactModels')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const serviceConfirmationMail = require('../utils/serviceConfirmationMail')
 require('dotenv').config()
 
 
@@ -119,8 +120,30 @@ async function UpdateServices(req,res) {
        if(!service){
         return res.status(404).json({success:false,message:"Service not found"})
        }
-        return res.status(200).json({success:true,service})
+       const serviceName = service.service
+       const email = service.email
+       const username = service.name
+       const bookingId = service._id
+       const Dates = new Date();
+       const formattedDate = Dates.toLocaleString('en-US', {
+           weekday: 'long',  
+           year: 'numeric',  
+           month: 'long',    
+           day: 'numeric',   
+           hour: '2-digit',  
+           minute: '2-digit',
+           hour12: true      
+       });
+       const bookingDate = formattedDate;
+       ({success:false,message:"Email not sent"})
+       
+      
+         res.status(200).json({success:true,service})
+        const statusMail = await serviceConfirmationMail(email, serviceName, username, bookingId, bookingDate, status)
+       if(!statusMail){
+        res.status(400).json
         
+       }    
     } catch (error) {
         res.status(500).json({ success: false, message: error.message })
     }

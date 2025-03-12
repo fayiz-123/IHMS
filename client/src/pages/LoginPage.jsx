@@ -1,121 +1,118 @@
 import React, { useState } from "react";
-import axios from "axios";
-import "./LoginPage.css";
-import Footer from "../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./LoginPage.css"; // Ensure it's correctly imported
 
-function LoginPage() {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+const Login = () => {
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
-  const [message, setMessage] = useState(""); // For success message
-
-  window.scrollTo(0, 0);
+  const [unverifiedEmail, setUnverifiedEmail] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-    setMessage(""); 
-  
+    setError(""); // Clear previous errors
+    setUnverifiedEmail(""); // Reset unverified email
+
     try {
       const response = await axios.post("http://localhost:8000/login", formData);
-  
-      
-      console.log("Server Response:", response.data);
-  
+
       if (response.data.success) {
-        
         localStorage.setItem("authToken", response.data.token);
-        localStorage.setItem("username", response.data.username);  
-     
-        setMessage("Login successful!"); 
-        navigate("/");  
-      } else {
-        setError(response.data.message); 
+        localStorage.setItem("username", response.data.username);
+        navigate("/"); // Redirect after successful login
       }
-    } catch (err) {
-      console.error("Error details:", err);  
-  
-     
-      if (err.response) {
-        console.error("Error response from server:", err.response.data);
-        setError(err.response.data.message || "Invalid credentials or server error");
-      } else if (err.request) {
-        
-        console.error("No response received:", err.request);
-        setError("No response from the server, please try again.");
+    } catch (error) {
+      if (error.response) {
+        const errorMessage = error.response.data.message;
+
+        if (errorMessage === "Verify the email First") {
+          setUnverifiedEmail(formData.email);
+          setError(""); // Clear duplicate message
+        } else {
+          setError(errorMessage);
+        }
       } else {
-        
-        console.error("Error message:", err.message);
-        setError("Something went wrong, please try again later.");
+        setError("Something went wrong. Please try again.");
       }
     }
   };
-  
+
   return (
-    <>
-      <div id="log">
-        <div className="wrapper login">
-          <div className="container">
-            <div className="col-left">
-              <div className="login-text">
-                <h2>Welcome Back !</h2>
-                <p>
-                  Sign in to your account and manage your home services.
-                  <br />
-                  Don't have an account? <br />
-                  <Link to="/signup" className="btn">Sign Up</Link>
-                </p>
-              </div>
-            </div>
-            <div className="col-right">
-              <div className="login-form">
-                <h2>Login</h2>
-                {message && <p className="success">{message}</p>} {/* Success message */}
-                {error && <p className="error">{error}</p>} {/* Error message */}
-                <form onSubmit={handleLogin}>
-                  <p>
-                    <label>Username/Email address<span></span></label>
-                    <input
-                      type="text"
-                      placeholder="Username or Email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      name="email"
-                      required
-                    />
-                  </p>
-                  <p>
-                    <label>Password<span></span></label>
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      value={formData.password}
-                      onChange={handleChange}
-                      name="password"
-                      required
-                    />
-                  </p>
-                  <p>
-                    <input type="submit" value="Sign In" />
-                  </p>
-                  <p><a href="#">Forgot password?</a></p>
-                </form>
-              </div>
-            </div>
+    <div id="log">
+      <div className="container">
+        {/* Left Column (Welcome Message) */}
+        <div className="col-left">
+          <div className="login-text">
+            <h2>Welcome Back!</h2>
+            <p>Sign in to your account and manage your home services.</p>
+            <p>
+              Don't have an account?{" "}
+              <Link to="/signup">
+                <strong>Sign Up</strong>
+              </Link>
+            </p>
+          </div>
+        </div>
+
+        {/* Right Column (Login Form) */}
+        <div className="col-right">
+          <div className="login-form">
+            <h2>Login</h2>
+            {error && <p className="error-message">{error}</p>}
+
+            <form onSubmit={handleSubmit}>
+              <p>
+                <label>Email:</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </p>
+
+              <p>
+                <label>Password:</label>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+              </p>
+
+              <p>
+                <input type="submit" value="Sign In" />
+              </p>
+            </form>
+
+            {/* Forgot Password Link */}
+            <p className="forgot-password">
+              <Link to="/forgot-password">Forgot password?</Link>
+            </p>
+
+            {/* Verify Email Link (Shown only when email is not verified) */}
+            {unverifiedEmail && (
+              <p className="verify-email-link">
+                <Link to="/otp-verification" state={{ email: unverifiedEmail }}>
+                  Verify your email
+                </Link>
+              </p>
+            )}
           </div>
         </div>
       </div>
-      <Footer />
-    </>
+    </div>
   );
-}
+};
 
-export default LoginPage;
+export default Login;

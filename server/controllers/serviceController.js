@@ -1,4 +1,6 @@
 const Service = require('../models/serviceModel')
+const User = require('../models/userModel')
+const bookingMail = require('../utils/bookingMail')
 
 //booking service
 async function bookService(req,res) {
@@ -7,6 +9,7 @@ async function bookService(req,res) {
         if(!userId){
            return res.status(400).json({success:false,message:"User not valid"})
         }
+        const user = await User.findById(userId)
         const {name,email,phone,address,service}= req.body
 
         const newService = new Service({
@@ -20,7 +23,28 @@ async function bookService(req,res) {
            
         })
         const saveService = await newService.save()
-        return res.status(200).json({success:true,message:"Service Booked Successfully",saveService})
+        const username = user.username
+        const bookingId = saveService._id
+        const Dates = new Date();
+        const formattedDate = Dates.toLocaleString('en-US', {
+            weekday: 'long',  
+            year: 'numeric',  
+            month: 'long',    
+            day: 'numeric',   
+            hour: '2-digit',  
+            minute: '2-digit',
+            hour12: true      
+        });
+        const bookingDate = formattedDate;
+        
+        const serviceName = service
+        
+        res.status(200).json({success:true,message:"Service Booked Successfully",saveService})
+        const sendConfirmation = await bookingMail(email,serviceName,username,bookingId,bookingDate)
+        if(!sendConfirmation){
+           return req.status(400).json({success:false,message:"Email Not Send"})
+        }
+        
     } catch (error) {
         return res.status(500).json({success:false,message:error.message})    
     }

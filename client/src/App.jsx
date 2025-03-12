@@ -15,6 +15,9 @@ import AdminRegistration from "./pages/AdminRegistration"
 import UserServices from "./pages/UserServices"
 import ContactMessages from "./pages/ContactMessages"
 import UserBookedServices from "./pages/UserBookedServices"
+import OtpVerification from "./pages/OtpVerification"
+import ForgotPassword from "./pages/ForgotPassword"
+import ResetPassword from "./pages/ResetPassword"
 
 
 function App() {
@@ -25,6 +28,9 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/login" element={<LoginPage/>}/>
       <Route path="/signup" element={<SignUp/>}/>
+      <Route path="/otp-verification" element={<OtpVerification />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password/:token" element={<ResetPassword />} />
       <Route path="/electricity" element={<Electricity/>}/>
       <Route path="/plumbing" element={<Plumbing/>}/>
       <Route path="/book-now" element={<BookingForm/>}/>

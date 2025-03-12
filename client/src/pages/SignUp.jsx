@@ -35,7 +35,7 @@ function SignUp() {
   
       if (response.data.success) {
         setSuccess(response.data.message);
-        setTimeout(() => navigate("/login"), 2000);  // Navigate to login page
+        setTimeout(() => navigate("/otp-verification", { state: { email } }), 2000);
       } else {
         setError(response.data.message || "An unknown error occurred.");
       }
@@ -125,7 +125,7 @@ function SignUp() {
                     />
                   </p>
                   <p>
-                    <input type="submit" value="Sign Up" />
+                    <input type="submit" value="Send OTP" />
                   </p>
                 </form>
               </div>

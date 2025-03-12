@@ -115,6 +115,7 @@ const BookingForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  disabled
                 />
               </div>
               <div>
