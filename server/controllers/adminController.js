@@ -49,9 +49,9 @@ async function adminLoggedIn(req, res) {
             const token = jwt.sign({
                 adminId: checkAdmin._id
             }, process.env.JWT_SECRET, { expiresIn: '1h' })
-            res.status(200).json({ success: true, message: "Admin LoggedIn Successfull", token:token,adminName:checkAdmin.name })
-            
-            
+            res.status(200).json({ success: true, message: "Admin LoggedIn Successfull", token: token, adminName: checkAdmin.name })
+
+
 
 
         }
@@ -68,7 +68,7 @@ async function adminLoggedIn(req, res) {
 async function getUsers(req, res) {
     try {
         const allUsers = await User.find()
-       
+
         res.status(200).json({ success: true, message: "All Users Are", allUsers })
 
     } catch (error) {
@@ -80,7 +80,7 @@ async function getUsers(req, res) {
 //bookedServices
 async function bookedServices(req, res) {
     try {
-        const allServices = await Service.find() 
+        const allServices = await Service.find()
         res.status(200).json({ success: true, message: "All BookedServices Are", allServices })
 
     } catch (error) {
@@ -95,10 +95,10 @@ async function bookedServices(req, res) {
 async function contactMessages(req, res) {
     try {
         const contactMessages = await Contact.find().sort({ createdAt: -1 })
-        if(!contactMessages){
-           return res.status(400).json({success:false,message:"No contactMessages Found"})
+        if (!contactMessages) {
+            return res.status(400).json({ success: false, message: "No contactMessages Found" })
         }
-       return res.status(200).json({ success: true, message: "All Contact Messages", contactMessages })
+        return res.status(200).json({ success: true, message: "All Contact Messages", contactMessages })
 
     } catch (error) {
         res.status(500).json({ success: false, message: error.message })
@@ -109,41 +109,41 @@ async function contactMessages(req, res) {
 
 //updateStatus
 
-async function UpdateServices(req,res) {
+async function UpdateServices(req, res) {
     try {
-      
-        const {serviceId}= req.params
-        const {status}= req.body
-       const service = await Service.findByIdAndUpdate(serviceId,
-        {status:status},
-       {new:true}) 
-       if(!service){
-        return res.status(404).json({success:false,message:"Service not found"})
-       }
-       const serviceName = service.service
-       const email = service.email
-       const username = service.name
-       const bookingId = service._id
-       const Dates = new Date();
-       const formattedDate = Dates.toLocaleString('en-US', {
-           weekday: 'long',  
-           year: 'numeric',  
-           month: 'long',    
-           day: 'numeric',   
-           hour: '2-digit',  
-           minute: '2-digit',
-           hour12: true      
-       });
-       const bookingDate = formattedDate;
-       ({success:false,message:"Email not sent"})
-       
-      
-         res.status(200).json({success:true,service})
+
+        const { serviceId } = req.params
+        const { status } = req.body
+        if (status === 'booked') {
+            return res.status(400).json({ success: false, message: "Cannot set to Booked" })
+        }
+        const service = await Service.findByIdAndUpdate(serviceId,
+            { status: status },
+            { new: true })
+        if (!service) {
+            return res.status(404).json({ success: false, message: "Service not found" })
+        }
+        const { service: serviceName, email, name: username, _id: bookingId } = service;
+        const Dates = new Date();
+        const formattedDate = Dates.toLocaleString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true
+        });
+        const bookingDate = formattedDate;
+        ({ success: false, message: "Email not sent" })
+
+
+        res.status(200).json({ success: true, service })
         const statusMail = await serviceConfirmationMail(email, serviceName, username, bookingId, bookingDate, status)
-       if(!statusMail){
-        res.status(400).json
-        
-       }    
+        if (!statusMail) {
+            res.status(400).json
+
+        }
     } catch (error) {
         res.status(500).json({ success: false, message: error.message })
     }

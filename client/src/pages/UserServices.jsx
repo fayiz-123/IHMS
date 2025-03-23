@@ -44,19 +44,24 @@ function UserServices() {
         setError("Admin not authenticated. Please login again.");
         return;
       }
-
+  
+      // Prevent updating to "Booked"
+      if (newStatus === "Booked") {
+        alert("You cannot update the service back to 'Booked'.");
+        return;
+      }
+  
       const response = await axios.put(
         `http://localhost:8000/admin/updateService/${serviceId}`,
-        { status: newStatus }, 
+        { status: newStatus },
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
-
+  
       if (response.data.success) {
-        
         setUsers((prevUsers) =>
           prevUsers.map((user) =>
             user._id === serviceId ? { ...user, status: newStatus } : user
@@ -64,13 +69,17 @@ function UserServices() {
         );
         alert(`Service status updated to '${newStatus}'`);
       } else {
-        setError("Failed to update service status.");
+        alert("Failed to update service status.");
       }
     } catch (error) {
-      setError("Error updating service: " + error.message);
-      console.error("Error updating service:", error);
+      if (error.response && error.response.status === 400) {
+        alert(error.response.data.message); // Show backend error message
+      } else {
+        alert("Error updating service: " + error.message);
+      }
     }
   };
+  
 
   const handleLogout = () => {
     localStorage.removeItem("adminToken");
